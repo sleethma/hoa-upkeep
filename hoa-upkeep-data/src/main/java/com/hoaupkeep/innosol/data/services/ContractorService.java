@@ -1,10 +1,8 @@
 package com.hoaupkeep.innosol.data.services;
 
-import com.hoaupkeep.innosol.data.models.Contractor;
+import com.hoaupkeep.innosol.data.models.Home;
 
-import java.util.Set;
+public interface ContractorService extends CRUDService<Home, Long> {
 
-public interface ContractorService extends CRUDService<Contractor, Long> {
-
-    Contractor findByLastName(String lastName);
+    Home findByLastName(String lastName);
 }

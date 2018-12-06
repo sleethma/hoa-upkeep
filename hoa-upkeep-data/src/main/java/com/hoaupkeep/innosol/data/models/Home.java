@@ -2,7 +2,7 @@ package com.hoaupkeep.innosol.data.models;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class Contractor extends Person{
+public class Home extends Person{
 
 
 }
