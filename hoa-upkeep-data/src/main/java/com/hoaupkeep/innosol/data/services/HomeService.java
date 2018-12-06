@@ -4,11 +4,6 @@ import com.hoaupkeep.innosol.data.models.House;
 
 import java.util.Set;
 
-public interface HomeService {
+public interface HomeService extends CRUDService<House, Long> {
 
-    House findById(Long id);
-
-    House save(House house);
-
-    Set<House> findAll();
 }
