@@ -2,10 +2,12 @@ package com.hoaupkeep.innosol.data.models;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
-public class PlanType {
+@Slf4j
+@Setter
+@Getter
+public class PlanType extends BaseEntity {
 
-    @Setter
-    @Getter
     private String name;
 }

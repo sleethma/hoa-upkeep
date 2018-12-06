@@ -4,7 +4,7 @@ import com.hoaupkeep.innosol.data.services.OwnerService;
 
 import java.util.Set;
 
-public class Owner implements OwnerService {
+public class Owner extends Person implements OwnerService {
     @Override
     public Owner findByLastName(String lastName) {
         return null;

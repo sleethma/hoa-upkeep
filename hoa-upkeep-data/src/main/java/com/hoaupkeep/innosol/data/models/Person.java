@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-public class Person {
+public class Person extends BaseEntity{
 
     @Setter
     @Getter

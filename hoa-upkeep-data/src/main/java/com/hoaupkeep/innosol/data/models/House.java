@@ -5,15 +5,12 @@ import lombok.Setter;
 
 import java.util.Date;
 
-public class House  {
-    @Setter
-    @Getter
+@Setter
+@Getter
+public class House extends BaseEntity  {
+
     private PlanType planType;
-    @Setter
-    @Getter
     private Date buildDate;
-    @Setter
-    @Getter
     private Owner owner;
 
 
