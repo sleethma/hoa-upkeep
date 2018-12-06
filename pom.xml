@@ -46,7 +46,7 @@
 	</build>
 
     <scm>
-        <developerConnection>scm:git:https://github.com/sleethma/hoa-upkeep.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:sleethma/hoa-upkeep.git</developerConnection>
       <tag>hoa-upkeep-0.0.1</tag>
   </scm>
 </project>
