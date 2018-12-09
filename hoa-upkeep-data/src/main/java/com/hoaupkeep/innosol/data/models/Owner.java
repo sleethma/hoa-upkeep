@@ -21,6 +21,15 @@ public class Owner extends Person implements OwnerService {
     }
 
     @Override
+    public void delete(Owner object) {
+
+    }
+    @Override
+    public void deleteById(Long aLong) {
+
+    }
+
+    @Override
     public Set<Owner> findAll() {
         return null;
     }

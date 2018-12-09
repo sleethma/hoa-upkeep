@@ -1,0 +1,14 @@
+com\hoaupkeep\innosol\data\models\House.class
+com\hoaupkeep\innosol\data\models\Home.class
+com\hoaupkeep\innosol\data\services\map\HomeServiceMap.class
+com\hoaupkeep\innosol\data\models\BaseEntity.class
+com\hoaupkeep\innosol\data\models\Owner.class
+com\hoaupkeep\innosol\data\services\CRUDService.class
+com\hoaupkeep\innosol\data\services\ContractorService.class
+com\hoaupkeep\innosol\data\services\HomeService.class
+com\hoaupkeep\innosol\data\models\Person.class
+com\hoaupkeep\innosol\data\services\map\ContractorServiceMap.class
+com\hoaupkeep\innosol\data\services\OwnerService.class
+com\hoaupkeep\innosol\data\models\PlanType.class
+com\hoaupkeep\innosol\data\services\map\OwnerServiceMap.class
+com\hoaupkeep\innosol\data\services\map\AbstractMapService.class
