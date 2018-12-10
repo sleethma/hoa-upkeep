@@ -1,3 +1,4 @@
 com\hoaupkeep\innosol\web\controllers\IndexController.class
 com\hoaupkeep\innosol\web\HoaUpkeepApplication.class
+com\hoaupkeep\innosol\web\controllers\OwnersController.class
 com\hoaupkeep\innosol\web\controllers\ContractorController.class
