@@ -1,11 +1,13 @@
 package com.hoaupkeep.innosol.data.services.map;
 
 import com.hoaupkeep.innosol.data.models.Home;
+import com.hoaupkeep.innosol.data.models.House;
 import com.hoaupkeep.innosol.data.services.CRUDService;
+import com.hoaupkeep.innosol.data.services.HomeService;
 
 import java.util.Set;
 
-public class HomeServiceMap extends AbstractMapService<Home, Long> implements CRUDService<Home, Long> {
+public class HomeServiceMap extends AbstractMapService<Home, Long> implements HomeService {
     @Override
     public Set<Home> findAll() {
         return super.findAll();
@@ -13,12 +15,7 @@ public class HomeServiceMap extends AbstractMapService<Home, Long> implements CR
 
     @Override
     public void deleteById(Long id) {
-    super.deleteById(id);
-    }
-
-    @Override
-    public void delete(Home object) {
-    super.deleteByObject(object);
+        super.deleteById(id);
     }
 
     @Override
@@ -28,8 +25,11 @@ public class HomeServiceMap extends AbstractMapService<Home, Long> implements CR
 
     @Override
     public Home save(Home object) {
-        return super.save(object.getId(), object);
+        return null;
     }
 
+    @Override
+    public void delete(Home object) {
 
+    }
 }

@@ -12,3 +12,4 @@ com\hoaupkeep\innosol\data\services\OwnerService.class
 com\hoaupkeep\innosol\data\models\PlanType.class
 com\hoaupkeep\innosol\data\services\map\OwnerServiceMap.class
 com\hoaupkeep\innosol\data\services\map\AbstractMapService.class
+com\hoaupkeep\innosol\data\models\Contractor.class
