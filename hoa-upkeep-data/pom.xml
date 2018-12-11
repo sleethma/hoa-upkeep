@@ -8,7 +8,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <start-class>com.hoaupkeep.innosol.web.HoaUpkeepApplication</start-class>
+        <start-class>HoaUpkeepApplication</start-class>
+        <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
     </properties>
 
     <artifactId>hoa-upkeep-data</artifactId>

@@ -1,0 +1,5 @@
+com\hoaupkeep\innosol\controllers\ContractorController.class
+com\hoaupkeep\innosol\controllers\OwnersController.class
+com\hoaupkeep\innosol\HoaUpkeepApplication.class
+com\hoaupkeep\innosol\controllers\IndexController.class
+com\hoaupkeep\innosol\bootstrap\InitData.class
