@@ -36,6 +36,18 @@ public class InitData implements CommandLineRunner {
         testOwner1.setId(2L);
         ownerService.save(dummyOwner2);
 
+        Owner dummyOwner3 = new Owner();
+        testOwner1.setFirstName("FirstName3");
+        testOwner1.setLastName("LastName3");
+        testOwner1.setId(3L);
+        ownerService.save(dummyOwner3);
+
+        Owner dummyOwner4 = new Owner();
+        testOwner1.setFirstName("FirstName4");
+        testOwner1.setLastName("LastName4");
+        testOwner1.setId(4L);
+        ownerService.save(dummyOwner4);
+
         System.out.println("Loaded Owners");
 
         Contractor dummyContractor1 = new Contractor();
