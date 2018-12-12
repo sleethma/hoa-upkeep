@@ -31,7 +31,7 @@ public class ContractorServiceMap extends AbstractMapService<Contractor, Long> i
 
     @Override
     public Contractor save(Contractor object) {
-        return super.save(object.getId(), object);
+        return super.save( object);
     }
 
 
