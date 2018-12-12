@@ -31,36 +31,30 @@ public class InitData implements CommandLineRunner {
         ownerService.save(testOwner1);
 
         Owner dummyOwner2 = new Owner();
-        testOwner1.setFirstName("FirstName2");
-        testOwner1.setLastName("LastName2");
-        testOwner1.setId(2L);
+        dummyOwner2.setFirstName("FirstName2");
+        dummyOwner2.setLastName("LastName2");
+        dummyOwner2.setId(2L);
         ownerService.save(dummyOwner2);
 
         Owner dummyOwner3 = new Owner();
-        testOwner1.setFirstName("FirstName3");
-        testOwner1.setLastName("LastName3");
-        testOwner1.setId(3L);
+        dummyOwner3.setFirstName("FirstName3");
+        dummyOwner3.setLastName("LastName3");
+        dummyOwner3.setId(3L);
         ownerService.save(dummyOwner3);
-
-        Owner dummyOwner4 = new Owner();
-        testOwner1.setFirstName("FirstName4");
-        testOwner1.setLastName("LastName4");
-        testOwner1.setId(4L);
-        ownerService.save(dummyOwner4);
 
         System.out.println("Loaded Owners");
 
         Contractor dummyContractor1 = new Contractor();
         dummyContractor1.setId(1L);
-        dummyContractor1.setFirstName("Contractor1Name");
-        dummyContractor1.setLastName("Contractor2Name");
-        dummyContractor1.save(dummyContractor1);
+        dummyContractor1.setFirstName("Contractor1FirstName");
+        dummyContractor1.setLastName("Contractor1LastName");
+        contractorService.save(dummyContractor1);
 
         Contractor dummyContractor2 = new Contractor();
-        dummyContractor2.setId(1L);
-        dummyContractor2.setFirstName("Contractor1Name");
-        dummyContractor2.setLastName("Contractor2Name");
-        dummyContractor2.save(dummyContractor1);
+        dummyContractor2.setId(2L);
+        dummyContractor2.setFirstName("Contractor2FirstName");
+        dummyContractor2.setLastName("Contractor2LastName");
+        contractorService.save(dummyContractor2);
 
         System.out.println("Contractors Loaded");
     }

@@ -3,9 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>List of Contractors</title>
-    <h1 th:text="'List Of Contractors'">Contractor List</h1>
 </head>
 <body>
+
+<h1 th:text="'List Of Contractors'">Contractor List</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="contractor:${contractors}">
+        <td th:text="${contractor.id}">1</td>
+        <td th:text="${contractor.firstName}">Joe</td>
+        <td th:text="${contractor.lastName}">Buck</td>
+    </tr>
+    </tbody>
+</table>
+
+
 
 </body>
 </html>
