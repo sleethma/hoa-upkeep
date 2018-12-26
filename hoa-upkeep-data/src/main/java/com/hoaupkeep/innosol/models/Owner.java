@@ -1,38 +1,17 @@
 package com.hoaupkeep.innosol.models;
 
 import com.hoaupkeep.innosol.services.OwnerService;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Set;
 
+@Slf4j
+@Getter
+@Setter
 public class Owner extends Person  {
 
-    //todo: delete if don't need
-//    @Override
-//    public Owner findByLastName(String lastName) {
-//        return null;
-//    }
-//
-//    @Override
-//    public Owner findById(Long id) {
-//        return null;
-//    }
-//
-//    @Override
-//    public Owner save(Owner owner) {
-//        return owner;
-//    }
-//
-//    @Override
-//    public void delete(Owner object) {
-//
-//    }
-//    @Override
-//    public void deleteById(Long aLong) {
-//
-//    }
-//
-//    @Override
-//    public Set<Owner> findAll() {
-//        return null;
-//    }
+    Set<Home> homes;
+
 }

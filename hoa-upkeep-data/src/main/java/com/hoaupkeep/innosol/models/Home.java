@@ -1,8 +1,17 @@
 package com.hoaupkeep.innosol.models;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
-public class Home extends Person{
+import java.util.Date;
 
+@Slf4j
+@Getter
+@Setter
+public class Home extends BaseEntity{
+
+    private PlanType planType;
+    private Date buildDate;
+    private Owner owner;
 
 }
