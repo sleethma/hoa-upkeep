@@ -12,6 +12,12 @@ import java.util.Set;
 @Setter
 public class Owner extends Person  {
 
+    private String address;
+    private String telephone;
+    private String city;
     Set<Home> homes;
+
+
+
 
 }
