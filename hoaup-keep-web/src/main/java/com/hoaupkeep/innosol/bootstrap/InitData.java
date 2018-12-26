@@ -1,6 +1,7 @@
 package com.hoaupkeep.innosol.bootstrap;
 
 import com.hoaupkeep.innosol.models.Contractor;
+import com.hoaupkeep.innosol.models.Home;
 import com.hoaupkeep.innosol.models.Owner;
 import com.hoaupkeep.innosol.models.PlanType;
 import com.hoaupkeep.innosol.services.ContractorService;
@@ -8,6 +9,9 @@ import com.hoaupkeep.innosol.services.OwnerService;
 import com.hoaupkeep.innosol.services.PlanTypeService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 
 //initializes data
@@ -38,12 +42,36 @@ public class InitData implements CommandLineRunner {
         Owner testOwner1 = new Owner();
         testOwner1.setFirstName("FirstName1");
         testOwner1.setLastName("LastName1");
+        testOwner1.setAddress("123 Sillyville");
+        testOwner1.setCity("St. Louis");
+        testOwner1.setTelephone("901-222-7676");
         ownerService.save(testOwner1);
+
+        Home testOwner1Home = new Home();
+        testOwner1Home.setOwner(testOwner1);
+        testOwner1Home.setPlanType(threeBedroom);
+        testOwner1Home.setBuildDate(LocalDate.now());
+        testOwner1Home.setPropertyAddress("374 Fountain Crest");
+        testOwner1Home.setResidentFirstName("George");
+        testOwner1Home.setResidentLastName("Slimter");
+        testOwner1.getHomes().add(testOwner1Home);
 
         Owner dummyOwner2 = new Owner();
         dummyOwner2.setFirstName("FirstName2");
         dummyOwner2.setLastName("LastName2");
+        dummyOwner2.setAddress("321 Hanson St.");
+        dummyOwner2.setCity("Detroit");
+        dummyOwner2.setTelephone("945-666-3444");
         ownerService.save(dummyOwner2);
+
+        Home dummyOwner2Home = new Home();
+        dummyOwner2Home.setOwner(dummyOwner2);
+        dummyOwner2Home.setPlanType(fourBedroom);
+        dummyOwner2Home.setBuildDate(LocalDate.now());
+        dummyOwner2Home.setPropertyAddress("764 Rightway Cr.");
+        dummyOwner2Home.setResidentFirstName("Rachel");
+        dummyOwner2Home.setResidentLastName("Biggs");
+        dummyOwner2.getHomes().add(dummyOwner2Home);
 
         Owner dummyOwner3 = new Owner();
         dummyOwner3.setFirstName("FirstName3");
