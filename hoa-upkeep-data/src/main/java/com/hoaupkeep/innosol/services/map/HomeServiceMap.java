@@ -24,11 +24,11 @@ public class HomeServiceMap extends AbstractMapService<Home, Long> implements Ho
 
     @Override
     public Home save(Home object) {
-        return null;
+        return super.save(object);
     }
 
     @Override
     public void delete(Home object) {
-
+    super.deleteByObject(object);
     }
 }
