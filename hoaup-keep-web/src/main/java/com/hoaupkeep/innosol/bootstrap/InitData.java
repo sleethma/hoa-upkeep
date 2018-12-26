@@ -2,9 +2,10 @@ package com.hoaupkeep.innosol.bootstrap;
 
 import com.hoaupkeep.innosol.models.Contractor;
 import com.hoaupkeep.innosol.models.Owner;
+import com.hoaupkeep.innosol.models.PlanType;
 import com.hoaupkeep.innosol.services.ContractorService;
 import com.hoaupkeep.innosol.services.OwnerService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.hoaupkeep.innosol.services.PlanTypeService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -15,15 +16,25 @@ public class InitData implements CommandLineRunner {
 
     private OwnerService ownerService;
     private ContractorService contractorService;
+    private PlanTypeService planTypeService;
 
-    public InitData(OwnerService ownerService, ContractorService contractorService) {
+    public InitData(OwnerService ownerService, ContractorService contractorService, PlanTypeService planTypeService) {
         this.ownerService = ownerService;
         this.contractorService = contractorService;
+        this.planTypeService = planTypeService;
     }
 
     //will be called immediately after start-up
     @Override
     public void run(String... args) throws Exception {
+        PlanType threeBedroom = new PlanType();
+        threeBedroom.setName("threeBedRoom");
+        planTypeService.save(threeBedroom);
+
+        PlanType fourBedroom = new PlanType();
+        fourBedroom.setName("fourBedroom");
+        planTypeService.save(fourBedroom);
+
         Owner testOwner1 = new Owner();
         testOwner1.setFirstName("FirstName1");
         testOwner1.setLastName("LastName1");

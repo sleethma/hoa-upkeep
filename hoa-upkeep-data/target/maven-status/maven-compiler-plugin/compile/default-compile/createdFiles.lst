@@ -4,12 +4,15 @@ com\hoaupkeep\innosol\services\map\OwnerServiceMap.class
 com\hoaupkeep\innosol\models\Contractor.class
 com\hoaupkeep\innosol\models\Owner.class
 com\hoaupkeep\innosol\models\Home.class
-com\hoaupkeep\innosol\models\House.class
+com\hoaupkeep\innosol\models\RepairRequest.class
 com\hoaupkeep\innosol\services\HomeService.class
 com\hoaupkeep\innosol\services\CRUDService.class
 com\hoaupkeep\innosol\services\map\AbstractMapService.class
 com\hoaupkeep\innosol\services\map\HomeServiceMap.class
+com\hoaupkeep\innosol\models\ContractorSpecialty.class
 com\hoaupkeep\innosol\services\map\ContractorServiceMap.class
 com\hoaupkeep\innosol\models\PlanType.class
 com\hoaupkeep\innosol\models\Person.class
+com\hoaupkeep\innosol\services\map\PlanTypeMapService.class
 com\hoaupkeep\innosol\services\OwnerService.class
+com\hoaupkeep\innosol\services\PlanTypeService.class
