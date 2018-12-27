@@ -1,16 +1,13 @@
 package com.hoaupkeep.innosol.bootstrap;
 
-import com.hoaupkeep.innosol.models.Contractor;
-import com.hoaupkeep.innosol.models.Home;
-import com.hoaupkeep.innosol.models.Owner;
-import com.hoaupkeep.innosol.models.PlanType;
+import com.hoaupkeep.innosol.models.*;
 import com.hoaupkeep.innosol.services.ContractorService;
 import com.hoaupkeep.innosol.services.OwnerService;
 import com.hoaupkeep.innosol.services.PlanTypeService;
+import com.hoaupkeep.innosol.services.SpecialtyService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 
 
@@ -21,16 +18,36 @@ public class InitData implements CommandLineRunner {
     private OwnerService ownerService;
     private ContractorService contractorService;
     private PlanTypeService planTypeService;
+    private SpecialtyService specialtyService;
 
-    public InitData(OwnerService ownerService, ContractorService contractorService, PlanTypeService planTypeService) {
+    public InitData(OwnerService ownerService, ContractorService contractorService, PlanTypeService planTypeService, SpecialtyService specialtyService) {
         this.ownerService = ownerService;
         this.contractorService = contractorService;
         this.planTypeService = planTypeService;
+        this.specialtyService = specialtyService;
     }
 
     //will be called immediately after start-up
     @Override
     public void run(String... args) throws Exception {
+        if(ownerService.findAll().size() == 0)
+        loadData();
+    }
+
+    private void loadData() {
+        ContractorSpecialty roofing = new ContractorSpecialty();
+        roofing.setSpecialty("Roofing");
+        ContractorSpecialty carpentry = new ContractorSpecialty();
+        carpentry.setSpecialty("Carpentry");
+        ContractorSpecialty plumbing = new ContractorSpecialty();
+        plumbing.setSpecialty("Plumbing");
+
+
+        //persisting Specialties to Map
+        ContractorSpecialty savedRoofingSpec = specialtyService.save(roofing);
+        ContractorSpecialty savedCarpentrySpec = specialtyService.save(carpentry);
+        ContractorSpecialty savedPlumbingSpec = specialtyService.save(plumbing);
+
         PlanType threeBedroom = new PlanType();
         threeBedroom.setName("threeBedRoom");
         planTypeService.save(threeBedroom);
@@ -84,11 +101,14 @@ public class InitData implements CommandLineRunner {
         dummyContractor1.setFirstName("Contractor1FirstName");
         dummyContractor1.setLastName("Contractor1LastName");
         contractorService.save(dummyContractor1);
+        dummyContractor1.getSpecialties().add(savedRoofingSpec);
 
         Contractor dummyContractor2 = new Contractor();
         dummyContractor2.setFirstName("Contractor2FirstName");
         dummyContractor2.setLastName("Contractor2LastName");
         contractorService.save(dummyContractor2);
+        dummyContractor2.getSpecialties().add(savedCarpentrySpec);
+        dummyContractor2.getSpecialties().add(savedPlumbingSpec);
 
         System.out.println("Contractors Loaded");
     }
