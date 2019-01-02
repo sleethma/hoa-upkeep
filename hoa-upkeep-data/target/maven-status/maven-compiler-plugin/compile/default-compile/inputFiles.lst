@@ -1,5 +1,6 @@
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\models\Contractor.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\repos\HomeRepo.java
+D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\services\SpringDataJPA\ContractrDataJPAService.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\services\SpringDataJPA\OwnerDataJPAService.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\repos\ContractorRepo.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\repos\OwnerRepo.java

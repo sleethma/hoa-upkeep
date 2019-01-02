@@ -5,4 +5,5 @@ import com.hoaupkeep.innosol.models.Owner;
 import org.springframework.data.repository.CrudRepository;
 
 public interface ContractorRepo extends CrudRepository<Contractor, Long> {
+    Contractor findByLastName(String lastName);
 }

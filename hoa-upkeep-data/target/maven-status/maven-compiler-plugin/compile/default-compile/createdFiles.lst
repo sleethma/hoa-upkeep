@@ -19,6 +19,7 @@ com\hoaupkeep\innosol\services\ContractorService.class
 com\hoaupkeep\innosol\models\Home.class
 com\hoaupkeep\innosol\repos\HomeRepo.class
 com\hoaupkeep\innosol\models\RepairRequest.class
+com\hoaupkeep\innosol\services\SpringDataJPA\ContractrDataJPAService.class
 com\hoaupkeep\innosol\services\CRUDService.class
 com\hoaupkeep\innosol\services\map\AbstractMapService.class
 com\hoaupkeep\innosol\services\map\HomeServiceMap.class

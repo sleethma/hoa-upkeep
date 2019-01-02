@@ -55,7 +55,7 @@ public class ContractorServiceMap extends AbstractMapService<Contractor, Long> i
 
 
     @Override
-    public Home findByLastName(String lastName) {
+    public Contractor findByLastName(String lastName) {
         return null;
     }
 }
