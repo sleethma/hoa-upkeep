@@ -21,7 +21,6 @@ public class ContractrDataJPAService implements ContractorService {
         this.contractorRepo = contractorRepo;
     }
 
-
     @Override
     public Contractor findByLastName(String lastName) {
         return contractorRepo.findByLastName(lastName);

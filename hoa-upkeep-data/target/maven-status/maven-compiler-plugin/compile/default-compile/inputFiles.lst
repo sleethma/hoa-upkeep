@@ -1,6 +1,7 @@
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\models\Contractor.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\repos\HomeRepo.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\services\SpringDataJPA\ContractrDataJPAService.java
+D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\services\SpringDataJPA\RepairRequestJPAService.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\services\SpringDataJPA\OwnerDataJPAService.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\repos\ContractorRepo.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\repos\OwnerRepo.java
@@ -12,15 +13,18 @@ D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\i
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\services\SpecialtyService.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\services\ContractorService.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\models\Home.java
+D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\services\SpringDataJPA\PlanTypeDataJPAService.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\services\OwnerService.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\services\map\SpecialtyMapService.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\services\HomeService.java
+D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\repos\PlanTypeRepo.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\models\PlanType.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\services\map\OwnerServiceMap.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\services\map\AbstractMapService.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\models\Owner.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\repos\RepairRequestRepo.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\services\CRUDService.java
+D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\services\RepairRequestService.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\models\ContractorSpecialty.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\services\PlanTypeService.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\services\map\PlanTypeMapService.java
