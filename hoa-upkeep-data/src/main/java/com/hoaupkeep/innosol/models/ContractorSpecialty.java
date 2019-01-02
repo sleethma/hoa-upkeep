@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @Entity
-@Table(name = "contractor_specialties")
+@Table(name = "specialties")
 public class ContractorSpecialty extends BaseEntity {
 
     @Column(name = "description")

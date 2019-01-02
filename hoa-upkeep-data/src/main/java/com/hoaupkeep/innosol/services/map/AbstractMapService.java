@@ -4,6 +4,8 @@ import com.hoaupkeep.innosol.models.BaseEntity;
 
 import java.util.*;
 
+//All maps used for runtime data management w/o accessing the database and run w/ profile ?_____?
+
 public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
 
     protected Map<Long, T> map = new HashMap<>();
