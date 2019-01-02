@@ -5,13 +5,20 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Slf4j
 @Getter
 @Setter
+@Entity
+@Table(name = "contractors")
 public class Contractor extends Person {
 
-Set<ContractorSpecialty> specialties = new HashSet<>();
+    @ManyToMany(fetch = FetchType.EAGER)
+      @JoinTable(name = "contractor_specialties",
+              joinColumns = @JoinColumn(name = "contractor_id"),
+              inverseJoinColumns = @JoinColumn(name = "specialty_id"))
+    Set<ContractorSpecialty> specialties = new HashSet<>();
 }
