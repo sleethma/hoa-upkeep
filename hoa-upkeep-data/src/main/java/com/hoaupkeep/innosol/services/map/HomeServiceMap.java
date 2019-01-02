@@ -1,12 +1,12 @@
 package com.hoaupkeep.innosol.services.map;
 
 import com.hoaupkeep.innosol.models.Home;
-import com.hoaupkeep.innosol.services.HomeService;
+import com.hoaupkeep.innosol.services.HomesService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 @Service
-public class HomeServiceMap extends AbstractMapService<Home, Long> implements HomeService {
+public class HomeServiceMap extends AbstractMapService<Home, Long> implements HomesService {
     @Override
     public Set<Home> findAll() {
         return super.findAll();

@@ -2,7 +2,7 @@ package com.hoaupkeep.innosol.services.map;
 
 import com.hoaupkeep.innosol.models.Home;
 import com.hoaupkeep.innosol.models.Owner;
-import com.hoaupkeep.innosol.services.HomeService;
+import com.hoaupkeep.innosol.services.HomesService;
 import com.hoaupkeep.innosol.services.OwnerService;
 import com.hoaupkeep.innosol.services.PlanTypeService;
 import org.springframework.stereotype.Service;
@@ -12,10 +12,10 @@ import java.util.Set;
 @Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
-    private final HomeService homeService;
+    private final HomesService homeService;
     private final PlanTypeService planTypeService;
 
-    public OwnerServiceMap(HomeService homeService, PlanTypeService planTypeService) {
+    public OwnerServiceMap(HomesService homeService, PlanTypeService planTypeService) {
         this.homeService = homeService;
         this.planTypeService = planTypeService;
     }
