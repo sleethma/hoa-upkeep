@@ -4,11 +4,13 @@ import com.hoaupkeep.innosol.models.Home;
 import com.hoaupkeep.innosol.models.RepairRequest;
 import com.hoaupkeep.innosol.services.HomesService;
 import com.hoaupkeep.innosol.services.RepairRequestService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class RepairRequestServiceMap extends AbstractMapService<RepairRequest, Long> implements RepairRequestService {
     @Override
     public Set<RepairRequest> findAll() {
@@ -27,10 +29,10 @@ public class RepairRequestServiceMap extends AbstractMapService<RepairRequest, L
 
     @Override
     public RepairRequest save(RepairRequest repairRequest) {
-        if(repairRequest.getHome() == null || repairRequest.getHome().getId() == null ||
-        repairRequest.getHome().getOwner() == null || repairRequest.getHome().getOwner().getId() == null)
-            throw new RuntimeException("Invalid repair request");
-
+        if(repairRequest.getHome() == null)
+            throw new RuntimeException("Repair Request Has no Associated Home");
+        if(repairRequest.getHome().getId() == null)
+            throw new RuntimeException("Invalid Repair Request, No id value");
         return super.save(repairRequest);
     }
 

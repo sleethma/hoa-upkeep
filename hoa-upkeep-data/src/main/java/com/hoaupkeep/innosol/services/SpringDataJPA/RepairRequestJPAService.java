@@ -32,8 +32,8 @@ public class RepairRequestJPAService implements RepairRequestService {
     }
 
     @Override
-    public RepairRequest save(RepairRequest object) {
-        return repairRequestRepo.save(object);
+    public RepairRequest save(RepairRequest repairRequest) {
+        return repairRequestRepo.save(repairRequest);
     }
 
     @Override

@@ -5,11 +5,13 @@ import com.hoaupkeep.innosol.models.Owner;
 import com.hoaupkeep.innosol.services.HomesService;
 import com.hoaupkeep.innosol.services.OwnerService;
 import com.hoaupkeep.innosol.services.PlanTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     private final HomesService homeService;

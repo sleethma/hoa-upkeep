@@ -2,11 +2,13 @@ package com.hoaupkeep.innosol.services.map;
 
 import com.hoaupkeep.innosol.models.PlanType;
 import com.hoaupkeep.innosol.services.PlanTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class PlanTypeMapService extends AbstractMapService<PlanType, Long> implements PlanTypeService {
     @Override
     public Set<PlanType> findAll() {

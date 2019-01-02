@@ -1,10 +1,7 @@
 package com.hoaupkeep.innosol.bootstrap;
 
 import com.hoaupkeep.innosol.models.*;
-import com.hoaupkeep.innosol.services.ContractorService;
-import com.hoaupkeep.innosol.services.OwnerService;
-import com.hoaupkeep.innosol.services.PlanTypeService;
-import com.hoaupkeep.innosol.services.SpecialtyService;
+import com.hoaupkeep.innosol.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -19,12 +16,15 @@ public class InitData implements CommandLineRunner {
     private ContractorService contractorService;
     private PlanTypeService planTypeService;
     private SpecialtyService specialtyService;
+    private RepairRequestService repairRequestService;
 
-    public InitData(OwnerService ownerService, ContractorService contractorService, PlanTypeService planTypeService, SpecialtyService specialtyService) {
+    public InitData(OwnerService ownerService, ContractorService contractorService, PlanTypeService planTypeService,
+                    SpecialtyService specialtyService, RepairRequestService repairRequestService) {
         this.ownerService = ownerService;
         this.contractorService = contractorService;
         this.planTypeService = planTypeService;
         this.specialtyService = specialtyService;
+        this.repairRequestService = repairRequestService;
     }
 
     //will be called immediately after start-up
@@ -50,11 +50,11 @@ public class InitData implements CommandLineRunner {
 
         PlanType threeBedroom = new PlanType();
         threeBedroom.setName("threeBedRoom");
-        planTypeService.save(threeBedroom);
+        PlanType savedThreePlanType = planTypeService.save(threeBedroom);
 
         PlanType fourBedroom = new PlanType();
         fourBedroom.setName("fourBedroom");
-        planTypeService.save(fourBedroom);
+        PlanType savedFourPlanType = planTypeService.save(fourBedroom);
 
         Owner testOwner1 = new Owner();
         testOwner1.setFirstName("FirstName1");
@@ -62,16 +62,25 @@ public class InitData implements CommandLineRunner {
         testOwner1.setAddress("123 Sillyville");
         testOwner1.setCity("St. Louis");
         testOwner1.setTelephone("901-222-7676");
-        ownerService.save(testOwner1);
 
         Home testOwner1Home = new Home();
         testOwner1Home.setOwner(testOwner1);
-        testOwner1Home.setPlanType(threeBedroom);
+        testOwner1Home.setPlanType(savedThreePlanType);
         testOwner1Home.setBuildDate(LocalDate.now());
         testOwner1Home.setPropertyAddress("374 Fountain Crest");
         testOwner1Home.setResidentFirstName("George");
         testOwner1Home.setResidentLastName("Slimter");
         testOwner1.getHomes().add(testOwner1Home);
+        ownerService.save(testOwner1);
+
+
+        //Repair Services
+        RepairRequest testOwner1HomeRepair = new RepairRequest();
+        testOwner1HomeRepair.setDate(LocalDate.now());
+        testOwner1HomeRepair.setHome(testOwner1Home);
+        testOwner1HomeRepair.setRepairDescription("Replaced Main Entry Wood Floor Section");
+        repairRequestService.save(testOwner1HomeRepair);
+
 
         Owner dummyOwner2 = new Owner();
         dummyOwner2.setFirstName("FirstName2");
@@ -79,16 +88,17 @@ public class InitData implements CommandLineRunner {
         dummyOwner2.setAddress("321 Hanson St.");
         dummyOwner2.setCity("Detroit");
         dummyOwner2.setTelephone("945-666-3444");
-        ownerService.save(dummyOwner2);
 
         Home dummyOwner2Home = new Home();
         dummyOwner2Home.setOwner(dummyOwner2);
-        dummyOwner2Home.setPlanType(fourBedroom);
+        dummyOwner2Home.setPlanType(savedFourPlanType);
         dummyOwner2Home.setBuildDate(LocalDate.now());
         dummyOwner2Home.setPropertyAddress("764 Rightway Cr.");
         dummyOwner2Home.setResidentFirstName("Rachel");
         dummyOwner2Home.setResidentLastName("Biggs");
         dummyOwner2.getHomes().add(dummyOwner2Home);
+        ownerService.save(dummyOwner2);
+
 
         Owner dummyOwner3 = new Owner();
         dummyOwner3.setFirstName("FirstName3");
@@ -98,17 +108,18 @@ public class InitData implements CommandLineRunner {
         System.out.println("Loaded Owners");
 
         Contractor dummyContractor1 = new Contractor();
-        dummyContractor1.setFirstName("Contractor1FirstName");
-        dummyContractor1.setLastName("Contractor1LastName");
+        dummyContractor1.setFirstName("Jim");
+        dummyContractor1.setLastName("Baggins");
         contractorService.save(dummyContractor1);
         dummyContractor1.getSpecialties().add(savedRoofingSpec);
 
         Contractor dummyContractor2 = new Contractor();
-        dummyContractor2.setFirstName("Contractor2FirstName");
-        dummyContractor2.setLastName("Contractor2LastName");
+        dummyContractor2.setFirstName("Chase");
+        dummyContractor2.setLastName("Chitin");
         contractorService.save(dummyContractor2);
         dummyContractor2.getSpecialties().add(savedCarpentrySpec);
         dummyContractor2.getSpecialties().add(savedPlumbingSpec);
+
 
         System.out.println("Contractors Loaded");
     }

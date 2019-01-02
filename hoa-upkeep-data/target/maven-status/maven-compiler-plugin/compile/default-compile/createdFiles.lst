@@ -1,11 +1,12 @@
 com\hoaupkeep\innosol\models\BaseEntity.class
 com\hoaupkeep\innosol\repos\OwnerRepo.class
+com\hoaupkeep\innosol\services\SpringDataJPA\HomesDataJPAService.class
 com\hoaupkeep\innosol\services\map\OwnerServiceMap.class
 com\hoaupkeep\innosol\services\SpringDataJPA\RepairRequestJPAService.class
 com\hoaupkeep\innosol\models\Contractor.class
 com\hoaupkeep\innosol\models\Owner.class
 com\hoaupkeep\innosol\services\SpringDataJPA\OwnerDataJPAService.class
-com\hoaupkeep\innosol\services\HomeService.class
+com\hoaupkeep\innosol\services\map\RepairRequestServiceMap.class
 com\hoaupkeep\innosol\repos\RepairRequestRepo.class
 com\hoaupkeep\innosol\services\map\SpecialtyMapService.class
 com\hoaupkeep\innosol\repos\ContractorRepo.class
@@ -15,8 +16,10 @@ com\hoaupkeep\innosol\services\map\ContractorServiceMap.class
 com\hoaupkeep\innosol\models\PlanType.class
 com\hoaupkeep\innosol\models\Person.class
 com\hoaupkeep\innosol\services\map\PlanTypeMapService.class
+com\hoaupkeep\innosol\services\HomesService.class
 com\hoaupkeep\innosol\services\PlanTypeService.class
 com\hoaupkeep\innosol\services\ContractorService.class
+com\hoaupkeep\innosol\services\SpringDataJPA\SpecialtyJPAService.class
 com\hoaupkeep\innosol\models\Home.class
 com\hoaupkeep\innosol\repos\HomeRepo.class
 com\hoaupkeep\innosol\services\RepairRequestService.class

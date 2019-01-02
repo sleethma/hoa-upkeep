@@ -5,11 +5,13 @@ import com.hoaupkeep.innosol.models.ContractorSpecialty;
 import com.hoaupkeep.innosol.models.Home;
 import com.hoaupkeep.innosol.services.ContractorService;
 import com.hoaupkeep.innosol.services.SpecialtyService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class ContractorServiceMap extends AbstractMapService<Contractor, Long> implements ContractorService {
 
     private SpecialtyService specialtyService;
