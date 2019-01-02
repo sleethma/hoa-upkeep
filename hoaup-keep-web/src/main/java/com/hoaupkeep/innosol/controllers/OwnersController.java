@@ -19,4 +19,9 @@ public class OwnersController {
         model.addAttribute("owners", ownerService.findAll());
         return "owners/index";
     }
+
+    @GetMapping("owners/find")
+    public String ownersTempLinkFix(){
+        return "error-page";
+    }
 }
