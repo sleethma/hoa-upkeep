@@ -1,5 +1,6 @@
 package com.hoaupkeep.innosol.models;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -9,15 +10,13 @@ import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
 @Slf4j
+@Data
 @MappedSuperclass
 public class Person extends BaseEntity{
 
-    @Setter
-    @Getter
+
     @Column(name = "first_name")
     private String firstName;
-    @Setter
-    @Getter
     @Column(name = "last_name")
     private String lastName;
 

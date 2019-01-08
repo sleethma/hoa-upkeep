@@ -1,5 +1,6 @@
 package com.hoaupkeep.innosol.models;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -11,8 +12,7 @@ import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 
 @Slf4j
-@Getter
-@Setter
+@Data
 @MappedSuperclass //establishes master class to JPA
 public class BaseEntity implements Serializable {
 

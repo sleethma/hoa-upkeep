@@ -1,5 +1,6 @@
 package com.hoaupkeep.innosol.models;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -9,8 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Slf4j
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "specialties")
 public class ContractorSpecialty extends BaseEntity {

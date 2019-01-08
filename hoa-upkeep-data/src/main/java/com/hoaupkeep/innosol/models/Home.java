@@ -1,4 +1,5 @@
 package com.hoaupkeep.innosol.models;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -11,8 +12,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Slf4j
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "homes")
 public class Home extends BaseEntity{

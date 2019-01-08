@@ -2,6 +2,7 @@ package com.hoaupkeep.innosol.bootstrap;
 
 import com.hoaupkeep.innosol.models.*;
 import com.hoaupkeep.innosol.services.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -10,6 +11,7 @@ import java.time.LocalDate;
 
 //initializes data
 @Component
+@Slf4j
 public class InitData implements CommandLineRunner {
 
     private OwnerService ownerService;
@@ -25,6 +27,7 @@ public class InitData implements CommandLineRunner {
         this.planTypeService = planTypeService;
         this.specialtyService = specialtyService;
         this.repairRequestService = repairRequestService;
+        log.debug("Data Init Instance Created");
     }
 
     //will be called immediately after start-up
