@@ -15,7 +15,7 @@ import java.util.Set;
 @Profile("SpringDataJPA")
 public class OwnerDataJPAService implements OwnerService {
 
-    OwnerRepo ownerRepo;
+    private final OwnerRepo ownerRepo;
 
     public OwnerDataJPAService(OwnerRepo ownerRepo) {
         this.ownerRepo = ownerRepo;
