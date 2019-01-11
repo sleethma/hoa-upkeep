@@ -38,5 +38,6 @@ jobs:
         - ~/.m2
         key: v1-dependencies-{{ checksum "pom.xml" }}
 
+#todo: implement integration-test when necessary, fix is upgrade to java 11
     # run tests!
 #    - run: mvn integration-test
