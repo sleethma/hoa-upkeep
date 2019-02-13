@@ -49,6 +49,7 @@
                 <dd
                         th:text="${#temporals.format(home.buildDate, 'yyyy-MM-dd')}" /></dd>
                 <dt>Type</dt>
+                <!--BugFix!: plan type not displaying-->
                 <dd th:text="${home.planType}" />plan type</dd>
             </dl>
         </td>
