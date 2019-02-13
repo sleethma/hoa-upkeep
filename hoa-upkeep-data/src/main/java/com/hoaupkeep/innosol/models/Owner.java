@@ -28,6 +28,12 @@ public class Owner extends Person  {
     private Set<Home> homes = new HashSet<>();
 
 
-
-
+    @Override
+    public String toString() {
+        return "Owner{" +
+                "address='" + address + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", city='" + city + '\'' +
+                '}';
+    }
 }

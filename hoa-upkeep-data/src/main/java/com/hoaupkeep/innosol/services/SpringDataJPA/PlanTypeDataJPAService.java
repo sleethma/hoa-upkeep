@@ -36,7 +36,7 @@ public class PlanTypeDataJPAService implements PlanTypeService {
 
     @Override
     public PlanType save(PlanType object) {
-        return null;
+        return planTypeRepo.save(object);
     }
 
     @Override

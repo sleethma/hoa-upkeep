@@ -45,11 +45,12 @@
             <dl class="dl-horizontal">
                 <dt>Name</dt>
                 <dd th:text="${owner.firstName}" /></dd>
-                <dt>Birth Date</dt>
+                <dt>Build Date</dt>
                 <dd
                         th:text="${#temporals.format(home.buildDate, 'yyyy-MM-dd')}" /></dd>
                 <dt>Type</dt>
-                <dd th:text="${home.planType}" />plan type</dd>
+                <!--BugFix!: plan type not displaying-->
+                <dd th:text="${home.planType.name}" /></dd>
             </dl>
         </td>
         <td valign="top">
