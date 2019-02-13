@@ -3,6 +3,7 @@ package com.hoaupkeep.innosol.controllers;
 import com.hoaupkeep.innosol.models.Owner;
 import com.hoaupkeep.innosol.services.OwnerService;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -17,7 +18,12 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import java.util.HashSet;
 import java.util.Set;
 
+import static org.hamcrest.Matchers.hasProperty;
+import static org.hamcrest.Matchers.is;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -37,6 +43,7 @@ public class OwnersControllerTest {
 
     Set<Owner> ownerSet;
     Owner  owner = new Owner();
+    Long ownerId = 2L;
 
     MockMvc mockMvc;
 
@@ -46,7 +53,7 @@ public class OwnersControllerTest {
         MockitoAnnotations.initMocks(this);
 
 
-        owner.setId(3L);
+        owner.setId(ownerId);
         owner.setLastName("Smith");
         ownerSet = new HashSet<>();
         ownerSet.add(owner);
@@ -84,5 +91,20 @@ public class OwnersControllerTest {
         .andExpect(view().name("error-page"));
 
         verifyZeroInteractions(ownerService);
+    }
+
+    @Test
+    @Ignore
+    public void showOwner() throws Exception{
+        Owner owner = new Owner();
+        owner.setId(ownerId);
+        when(ownerService.findById(anyLong())).thenReturn(owner);
+
+
+        mockMvc.perform(get("/owners/2"))
+                .andExpect(model().attributeExists("owner"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("owners/ownerDetails"));
+
     }
 }

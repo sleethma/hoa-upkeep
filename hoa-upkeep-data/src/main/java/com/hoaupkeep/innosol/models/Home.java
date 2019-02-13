@@ -38,8 +38,19 @@ public class Home extends BaseEntity{
     private String propertyAddress;
 
 
-    //todo: what exactly is @mappedBy
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "home")
     private Set<RepairRequest> repairs = new HashSet<>();
 
+    //todo: not overriding hash causes SO Exception between home and repair oneToMany relationship
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + (planType != null ? planType.hashCode() : 0);
+        result = 31 * result + (buildDate != null ? buildDate.hashCode() : 0);
+        result = 31 * result + (owner != null ? owner.hashCode() : 0);
+        result = 31 * result + (residentFirstName != null ? residentFirstName.hashCode() : 0);
+        result = 31 * result + (residentLastName != null ? residentLastName.hashCode() : 0);
+        result = 31 * result + (propertyAddress != null ? propertyAddress.hashCode() : 0);
+        return result;
+    }
 }
