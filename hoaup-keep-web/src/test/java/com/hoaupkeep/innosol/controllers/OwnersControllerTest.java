@@ -11,6 +11,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.ui.Model;
 
 import java.util.*;
 
@@ -20,6 +21,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
@@ -115,4 +117,50 @@ public class OwnersControllerTest {
 
         verify(ownerService, times(1)).findAllByLastNameLike(anyString());
     }
+
+    @Test
+    public void initUpdateOwnerForm() throws Exception{
+        when(ownerService.findById(anyLong())).thenReturn(owner);
+
+        mockMvc.perform(get("/owners/"+ ownerId + "/edit"))
+                .andExpect(status().isOk())
+                .andExpect(model().attributeExists("owner"))
+                .andExpect(view().name("owners/create-or-update-owner-form"));
+
+    }
+
+    @Test
+    public void processUpdateOwnerForm() throws Exception{
+        when(ownerService.save(any())).thenReturn(owner);
+
+        mockMvc.perform(post("/owners/" + ownerId + "/edit"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("owners/" + ownerId));
+
+    }
+
+
+    @Test
+    public void initNewOwnerForm() throws Exception{
+        mockMvc.perform(get("/owners/new"))
+                .andExpect(view().name("owners/create-or-update-owner-form"))
+                .andExpect(status().isOk())
+                .andExpect(model().attributeExists("owner"));
+
+
+    }
+    @Test
+    public void processNewOwnerForm() throws Exception{
+        when(ownerService.save(any())).thenReturn(owner);
+
+        mockMvc.perform(post("/owners/new"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(model().attributeExists("owner"))
+                .andExpect(view().name("redirect:/owners/2"));
+
+    }
+
+
+
+
 }
