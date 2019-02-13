@@ -4,12 +4,9 @@ import com.hoaupkeep.innosol.models.Owner;
 import com.hoaupkeep.innosol.repos.OwnerRepo;
 import com.hoaupkeep.innosol.services.OwnerService;
 import org.springframework.context.annotation.Profile;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Service
 @Profile("SpringDataJPA")
@@ -51,5 +48,16 @@ public class OwnerDataJPAService implements OwnerService {
     @Override
     public void deleteById(Long id) {
     ownerRepo.deleteById(id);
+    }
+
+    @Override
+    public List<Owner> findAllByLastNameLike(String lastName) {
+        List<Owner> owners = new ArrayList<>();
+        if(lastName.isEmpty()){
+            return owners;
+        }else{
+            owners = ownerRepo.findAllByLastNameLike(lastName);
+            return owners;
+        }
     }
 }

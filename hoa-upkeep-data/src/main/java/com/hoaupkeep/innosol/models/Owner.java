@@ -6,7 +6,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -26,6 +25,7 @@ public class Owner extends Person  {
     private String city;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private Set<Home> homes = new HashSet<>();
+
 
 
     @Override

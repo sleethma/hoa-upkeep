@@ -7,10 +7,12 @@ import com.hoaupkeep.innosol.services.OwnerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
 import java.util.Set;
 
 @Slf4j
@@ -23,36 +25,48 @@ public class OwnersController {
         this.ownerService = ownerService;
     }
 
-    @GetMapping({"/owners", "owners/index", "owners/index.html"})
-    public String ownersList(Model model){
-        model.addAttribute("owners", ownerService.findAll());
-        return "owners/index";
+//    @GetMapping({"/owners", "owners/index", "owners/index.html"})
+//    public String ownersList(Model model){
+//        model.addAttribute("owners", ownerService.findAll());
+//        return "owners/index";
+//    }
+
+    @InitBinder
+    public void setAllowedFields(WebDataBinder dataBinder) {
+        dataBinder.setDisallowedFields("id");
     }
 
     @GetMapping("owners/find")
-    public String ownersTempLinkFix(){
-        return "error-page";
+    public String findOwners(Model model){
+        Owner owner = new Owner();
+        owner.setLastName("name");
+        model.addAttribute("owner", owner);
+        return "owners/find";
     }
 
     @GetMapping("/owners/{ownerId}")
     public String showOwner(@PathVariable("ownerId") Long ownerId, Model model) {
-
-        Owner owner = ownerService.findById(ownerId);
-        int ownerSizeTest = owner.getHomes().size();
-        Set<Home> homes =  owner.getHomes();//new Home[ownerSizeTest];
-        for (Home home : homes){
-            if (home.getPlanType() != null) {
-               PlanType planType =  home.getPlanType();
-                System.out.println(planType + "this home is");
-            }
-        }
-//        if(owner.getHomes().iterator().next().getPlanType().getName() != null) {
-//            String planType = owner.getHomes().iterator().next().getPlanType().getName();
-//            System.out.println("###############plantype= " + planType);
-//            model.addAttribute("plantype", planType);
-//        }
         model.addAttribute("owner", ownerService.findById(ownerId));
-        System.out.println("#############################"  + ownerService.findById(1L).getCity());
         return "owners/ownerDetails";
     }
+
+    @GetMapping("/owners")
+    public String processFindForm(Owner owner, Model model) {
+        //allow parameterless GET request for /owners to return all records
+        if (owner.getLastName() == null) {
+            owner.setLastName("");
+        }
+
+        List<Owner> results = ownerService.findAllByLastNameLike("%" + owner.getLastName().trim() + "%");
+        if (results.isEmpty()) {
+            return "owners/find";
+        } else if (results.size() == 1) {
+            owner = results.get(0);
+            return "redirect:/owners/" + owner.getId();
+        } else {
+            model.addAttribute("selections", results);
+            return "owners/owners-list";
+        }
+    }
+
 }
