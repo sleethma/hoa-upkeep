@@ -34,7 +34,7 @@ public class HomeController {
 
     @ModelAttribute("types")
     public Collection<PlanType> populatePetTypes() {
-        return planTypeService.findAll()git;
+        return planTypeService.findAll();
     }
 
     @ModelAttribute("owner")
