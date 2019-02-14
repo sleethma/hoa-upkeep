@@ -1,10 +1,7 @@
 package com.hoaupkeep.innosol.models;
 
 import com.hoaupkeep.innosol.services.OwnerService;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import javax.persistence.*;
 import java.util.HashSet;
@@ -26,6 +23,21 @@ public class Owner extends Person  {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private Set<Home> homes = new HashSet<>();
 
+
+    public Home getHome(String firstName, String lastName, boolean ignoreNew) {
+        firstName = firstName.toLowerCase();
+        lastName = lastName.toLowerCase();
+        for (Home home : homes) {
+            if (!ignoreNew || !home.isNew()) {
+                String compFirstName = home.getResidentFirstName().toLowerCase();
+                String compLastName = home.getResidentLastName().toLowerCase();
+                if (compFirstName.equals(firstName) && compLastName.equals(lastName)) {
+                    return home;
+                }
+            }
+        }
+        return null;
+    }
 
 
     @Override

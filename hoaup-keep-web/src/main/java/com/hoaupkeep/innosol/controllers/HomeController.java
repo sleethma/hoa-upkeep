@@ -1,17 +1,19 @@
 package com.hoaupkeep.innosol.controllers;
 
+import com.hoaupkeep.innosol.models.Home;
 import com.hoaupkeep.innosol.models.Owner;
 import com.hoaupkeep.innosol.models.PlanType;
 import com.hoaupkeep.innosol.services.HomesService;
 import com.hoaupkeep.innosol.services.OwnerService;
 import com.hoaupkeep.innosol.services.PlanTypeService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Collection;
 
 @RequestMapping("/owners/{ownerId}")
@@ -23,7 +25,7 @@ public class HomeController {
     private final OwnerService ownerService;
     private final PlanTypeService planTypeService;
 
-    private static final String VIEWS_PETS_CREATE_OR_UPDATE_FORM = "pets/createOrUpdatePetForm";
+    private static final String VIEWS_HOMES_CREATE_OR_UPDATE_FORM = "homes/create-or-update-home-form";
 
 
     public HomeController(HomesService homesService, OwnerService ownerService, PlanTypeService planTypeService) {
@@ -46,4 +48,50 @@ public class HomeController {
     public void initOwnerBinder(WebDataBinder dataBinder) {
         dataBinder.setDisallowedFields("id");
     }
+
+    @GetMapping("/homes/new")
+    public String initCreationForm(Owner owner, Model model) {
+        Home home = new Home();
+        owner.getHomes().add(home);
+        model.addAttribute("home", home);
+        return VIEWS_HOMES_CREATE_OR_UPDATE_FORM;
+    }
+
+    @PostMapping("/homes/new")
+    public String processCreationForm(Owner owner, @Valid Home home, BindingResult result, Model model) {
+        if (StringUtils.hasLength(home.getResidentFirstName()) && StringUtils.hasLength(home.getResidentLastName())
+                && home.isNew() && owner.getHome(home.getResidentFirstName(), home.getResidentLastName(), true) != null) {
+            result.rejectValue("name", "duplicate", "already exists");
+        }
+        owner.getHomes().add(home);
+        if (result.hasErrors()) {
+            model.addAttribute("home", home);
+            return VIEWS_HOMES_CREATE_OR_UPDATE_FORM;
+        } else {
+            homesService.save(home);
+            return "redirect:/owners/" + owner.getId();
+        }
+    }
+
+    @GetMapping("/homes/{homeId}/edit")
+    public String initUpdateForm(@PathVariable Long homeId, Model model) {
+        model.addAttribute("home", homesService.findById(homeId));
+        return VIEWS_HOMES_CREATE_OR_UPDATE_FORM;
+    }
+
+    @PostMapping("/homes/{homeId}/edit")
+    public String processUpdateForm(Owner owner, @Valid Home home, BindingResult result, Model model) {
+
+        if (result.hasErrors()) {
+            home.setOwner(owner);
+            model.addAttribute("home", home);
+            return VIEWS_HOMES_CREATE_OR_UPDATE_FORM;
+        } else {
+            owner.getHomes().add(home);
+            homesService.save(home);
+            return "redirect:/owners/" + owner.getId();
+        }
+    }
+
+
 }

@@ -85,7 +85,6 @@ public class OwnersController {
         }
         owner.setId(ownerId);
         Owner savedOwner = ownerService.save(owner);
-        log.error("owners/ id is:" + savedOwner.getId());
         return "redirect:/owners/" + savedOwner.getId();
     }
 

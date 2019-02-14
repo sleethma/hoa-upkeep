@@ -132,11 +132,11 @@ public class OwnersControllerTest {
     @Test
     public void processUpdateOwnerForm() throws Exception{
         when(ownerService.save(any())).thenReturn(owner);
-
         mockMvc.perform(post("/owners/" + ownerId + "/edit"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("owners/" + ownerId));
+                .andExpect(status().is3xxRedirection())
+                .andExpect(view().name("redirect:/owners/" + ownerId));
 
+        verify(ownerService, times(1)).save(any());
     }
 
 
