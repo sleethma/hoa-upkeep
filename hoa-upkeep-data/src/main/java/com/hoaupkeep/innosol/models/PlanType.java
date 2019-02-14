@@ -16,6 +16,13 @@ import javax.persistence.Table;
 @Table(name = "plan_types")
 public class PlanType extends BaseEntity {
 
+
+
     @Column(name = "plan_type")
     private String name;
+
+    @Override
+    public String toString(){
+        return name;
+    }
 }

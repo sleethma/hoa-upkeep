@@ -6,6 +6,7 @@ import com.hoaupkeep.innosol.models.PlanType;
 import com.hoaupkeep.innosol.services.HomesService;
 import com.hoaupkeep.innosol.services.OwnerService;
 import com.hoaupkeep.innosol.services.PlanTypeService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.Collection;
 
+@Slf4j
 @RequestMapping("/owners/{ownerId}")
 @Controller
 public class HomeController {
@@ -33,6 +35,7 @@ public class HomeController {
         this.ownerService = ownerService;
         this.planTypeService = planTypeService;
     }
+
 
     @ModelAttribute("types")
     public Collection<PlanType> populatePetTypes() {
@@ -53,6 +56,7 @@ public class HomeController {
     public String initCreationForm(Owner owner, Model model) {
         Home home = new Home();
         owner.getHomes().add(home);
+        home.setOwner(owner);
         model.addAttribute("home", home);
         return VIEWS_HOMES_CREATE_OR_UPDATE_FORM;
     }
