@@ -27,4 +27,11 @@ public class RepairRequest extends BaseEntity{
     @JoinColumn(name = "home_id")
     private Home home;
 
+    @Override
+    public String toString() {
+        return "RepairRequest{" +
+                "date=" + date +
+                ", repairDescription='" + repairDescription + '\'' +
+                '}';
+    }
 }

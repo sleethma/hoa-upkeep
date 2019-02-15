@@ -96,6 +96,4 @@ public class HomeController {
             return "redirect:/owners/" + owner.getId();
         }
     }
-
-
 }

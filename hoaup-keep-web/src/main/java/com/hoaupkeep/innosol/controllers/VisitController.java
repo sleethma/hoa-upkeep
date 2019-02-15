@@ -1,0 +1,67 @@
+package com.hoaupkeep.innosol.controllers;
+
+import com.hoaupkeep.innosol.models.Home;
+import com.hoaupkeep.innosol.models.RepairRequest;
+import com.hoaupkeep.innosol.repos.HomeRepo;
+import com.hoaupkeep.innosol.services.RepairRequestService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.Iterator;
+
+@Slf4j
+@Controller
+public class VisitController {
+
+    private final RepairRequestService repairRequestService;
+    private final HomeRepo homeRepo;
+    private final String CREATE_OR_UPDATE_REPAIR_VIEW = "repairs/create-or-update-repair-form";
+
+
+    public VisitController(RepairRequestService repairRequestService, HomeRepo homeRepo) {
+        this.repairRequestService = repairRequestService;
+        this.homeRepo = homeRepo;
+    }
+
+    @InitBinder
+    public void setAllowedFields(WebDataBinder dataBinder) {
+        dataBinder.setDisallowedFields("id");
+    }
+
+    @ModelAttribute("repair")
+    public RepairRequest loadPetWithVisit(@PathVariable("homeId") Long homeId, Model model) {
+        Home home = homeRepo.findById(homeId).get();
+        model.addAttribute("home", home);
+
+        RepairRequest repairRequest = new RepairRequest();
+        home.addRepairRequest(repairRequest);
+        repairRequest.setHome(home);
+        return repairRequest;
+    }
+
+    // Spring MVC calls method loadPetWithVisit(...) before initNewVisitForm is called
+    @GetMapping("/owners/{ownerId}/homes/{homeId}/repairs/new")
+    public String initNewVisitForm(@PathVariable Long homeId, Model model) {
+        return CREATE_OR_UPDATE_REPAIR_VIEW;
+    }
+
+    // Spring MVC calls method loadPetWithVisit(...) before processNewVisitForm is called
+    @PostMapping("/owners/{ownerId}/homes/{homeId}/repairs/new")
+    public String processNewVisitForm(@Valid RepairRequest repairRequest, BindingResult result) {
+        if (result.hasErrors()) {
+            return CREATE_OR_UPDATE_REPAIR_VIEW;
+        } else {
+            //todo: bug issue #64 repair description not populating
+            String testRepair = repairRequest.getRepairDescription();
+
+            repairRequestService.save(repairRequest);
+            return "redirect:/owners/{ownerId}";
+        }
+    }
+
+}

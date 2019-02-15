@@ -48,7 +48,7 @@
                 <dt>Build Date</dt>
                 <dd
                         th:text="${#temporals.format(home.buildDate, 'yyyy-MM-dd')}" /></dd>
-                <dt>Type</dt>
+                <dt>Floor Plan Type</dt>
                 <!--BugFix!: plan type not displaying-->
                 <dd th:text="${home.planType.name}" /></dd>
             </dl>
@@ -57,7 +57,7 @@
             <table class="table-condensed">
                 <thead>
                 <tr>
-                    <th>Visit Date</th>
+                    <th>Repair Date</th>
                     <th>Description</th>
                 </tr>
                 </thead>
