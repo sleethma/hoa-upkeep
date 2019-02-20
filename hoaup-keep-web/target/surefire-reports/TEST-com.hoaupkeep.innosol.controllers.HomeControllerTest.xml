@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.hoaupkeep.innosol.controllers.OwnersControllerTest" time="0.281" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.hoaupkeep.innosol.controllers.HomeControllerTest" time="1.954" tests="4" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -61,12 +61,8 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="showOwner" classname="com.hoaupkeep.innosol.controllers.OwnersControllerTest" time="0.028"/>
-  <testcase name="processUpdateOwnerForm" classname="com.hoaupkeep.innosol.controllers.OwnersControllerTest" time="0.046"/>
-  <testcase name="processNewOwnerForm" classname="com.hoaupkeep.innosol.controllers.OwnersControllerTest" time="0.04"/>
-  <testcase name="findOwnersByLastNameLikeReturnMany" classname="com.hoaupkeep.innosol.controllers.OwnersControllerTest" time="0.048"/>
-  <testcase name="initNewOwnerForm" classname="com.hoaupkeep.innosol.controllers.OwnersControllerTest" time="0.034"/>
-  <testcase name="findOwners" classname="com.hoaupkeep.innosol.controllers.OwnersControllerTest" time="0.03"/>
-  <testcase name="initUpdateOwnerForm" classname="com.hoaupkeep.innosol.controllers.OwnersControllerTest" time="0.026"/>
-  <testcase name="findOwnersByLastNameLikeReturnOne" classname="com.hoaupkeep.innosol.controllers.OwnersControllerTest" time="0.025"/>
+  <testcase name="initUpdateFormTest" classname="com.hoaupkeep.innosol.controllers.HomeControllerTest" time="1.563"/>
+  <testcase name="processCreationFormTest" classname="com.hoaupkeep.innosol.controllers.HomeControllerTest" time="0.211"/>
+  <testcase name="initCreationFormTest" classname="com.hoaupkeep.innosol.controllers.HomeControllerTest" time="0.032"/>
+  <testcase name="processUpdateFormTest" classname="com.hoaupkeep.innosol.controllers.HomeControllerTest" time="0.06"/>
 </testsuite>

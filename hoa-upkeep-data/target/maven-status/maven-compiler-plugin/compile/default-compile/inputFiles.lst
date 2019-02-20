@@ -16,6 +16,7 @@ D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\i
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\models\Home.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\services\SpringDataJPA\PlanTypeDataJPAService.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\services\OwnerService.java
+D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\exceptions\NotFoundException.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\services\map\SpecialtyMapService.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\services\SpringDataJPA\HomesDataJPAService.java
 D:\JavaProjects\Spring5\hoa-upkeep\hoa-upkeep-data\src\main\java\com\hoaupkeep\innosol\services\map\RepairRequestServiceMap.java

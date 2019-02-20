@@ -12,6 +12,7 @@ com\hoaupkeep\innosol\services\map\SpecialtyMapService.class
 com\hoaupkeep\innosol\repos\ContractorRepo.class
 com\hoaupkeep\innosol\models\ContractorSpecialty.class
 com\hoaupkeep\innosol\repos\ContractorSpecialtyRepo.class
+com\hoaupkeep\innosol\exceptions\NotFoundException.class
 com\hoaupkeep\innosol\services\map\ContractorServiceMap.class
 com\hoaupkeep\innosol\models\PlanType.class
 com\hoaupkeep\innosol\models\Person.class
