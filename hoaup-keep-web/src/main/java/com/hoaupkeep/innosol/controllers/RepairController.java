@@ -12,18 +12,20 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.beans.PropertyEditorSupport;
+import java.time.LocalDate;
 import java.util.Iterator;
 
 @Slf4j
 @Controller
-public class VisitController {
+public class RepairController {
 
     private final RepairRequestService repairRequestService;
     private final HomeRepo homeRepo;
     private final String CREATE_OR_UPDATE_REPAIR_VIEW = "repairs/create-or-update-repair-form";
 
 
-    public VisitController(RepairRequestService repairRequestService, HomeRepo homeRepo) {
+    public RepairController(RepairRequestService repairRequestService, HomeRepo homeRepo) {
         this.repairRequestService = repairRequestService;
         this.homeRepo = homeRepo;
     }
@@ -31,6 +33,13 @@ public class VisitController {
     @InitBinder
     public void setAllowedFields(WebDataBinder dataBinder) {
         dataBinder.setDisallowedFields("id");
+
+        dataBinder.registerCustomEditor(LocalDate.class, new PropertyEditorSupport(){
+            @Override
+            public void setAsText(String text) throws IllegalArgumentException{
+                setValue(LocalDate.parse(text));
+            }
+        });
     }
 
     @ModelAttribute("repair")
@@ -52,7 +61,7 @@ public class VisitController {
 
     // Spring MVC calls method loadPetWithVisit(...) before processNewVisitForm is called
     @PostMapping("/owners/{ownerId}/homes/{homeId}/repairs/new")
-    public String processNewVisitForm(@Valid RepairRequest repairRequest, BindingResult result) {
+    public String processNewRepairForm(@Valid RepairRequest repairRequest, BindingResult result) {
         if (result.hasErrors()) {
             return CREATE_OR_UPDATE_REPAIR_VIEW;
         } else {
