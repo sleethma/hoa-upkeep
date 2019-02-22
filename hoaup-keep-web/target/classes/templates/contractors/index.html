@@ -1,30 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'vets')}">
-<head>
-    <meta charset="UTF-8">
-    <title>List of Contractors</title>
-</head>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body},'vets')}">
+
 <body>
 
-<h2 th:text="'List Of Contractors'">Contractor List</h2>
-<table class="table table-striped">
+<h2>Veterinarians</h2>
+
+<table id="vets" class="table table-striped">
     <thead>
     <tr>
-        <th>Id</th>
-        <th>First Name</th>
-        <th>Last Name</th>
+        <th>Name</th>
+        <th>Specialties</th>
     </tr>
     </thead>
     <tbody>
+    <tr th:each="contractor : ${contractors}">
+        <td th:text="${contractor.firstName + ' ' + contractor.lastName}"></td>
+        <td><span th:each="contractorSpecialty : ${contractor.specialties}"
+                  th:text="${contractorSpecialty.specialty + ' '}" /> <span
+                th:if="${contractorSpecialty?.specialties?.size() == 0}">none</span></td>
+    </tr>
+    <!--
     <tr th:each="contractor:${contractors}">
         <td th:text="${contractor.id}">1</td>
         <td th:text="${contractor.firstName}">Joe</td>
-        <td th:text="${contractor.lastName}">Buck</td>
-    </tr>
+        <td th:text="${contractor.lastName}">Buck</td>-->
     </tbody>
 </table>
-
-
-
 </body>
 </html>

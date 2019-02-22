@@ -7,6 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 
 //initializes data
@@ -113,15 +114,15 @@ public class InitData implements CommandLineRunner {
         Contractor dummyContractor1 = new Contractor();
         dummyContractor1.setFirstName("Jim");
         dummyContractor1.setLastName("Baggins");
-        contractorService.save(dummyContractor1);
         dummyContractor1.getSpecialties().add(savedRoofingSpec);
+        contractorService.save(dummyContractor1);
 
         Contractor dummyContractor2 = new Contractor();
         dummyContractor2.setFirstName("Chase");
         dummyContractor2.setLastName("Chitin");
-        contractorService.save(dummyContractor2);
-        dummyContractor2.getSpecialties().add(savedCarpentrySpec);
         dummyContractor2.getSpecialties().add(savedPlumbingSpec);
+        dummyContractor2.getSpecialties().add(savedCarpentrySpec);
+        contractorService.save(dummyContractor2);
 
 
         System.out.println("Contractors Loaded");
