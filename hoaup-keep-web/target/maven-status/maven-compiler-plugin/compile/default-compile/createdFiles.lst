@@ -1,8 +1,10 @@
 com\hoaupkeep\innosol\controllers\HomeController.class
+com\hoaupkeep\innosol\controllers\RepairController.class
+com\hoaupkeep\innosol\controllers\HomeController$1.class
 com\hoaupkeep\innosol\HoaUpkeepApplication.class
-com\hoaupkeep\innosol\controllers\VisitController.class
 com\hoaupkeep\innosol\controllers\ContractorController.class
 com\hoaupkeep\innosol\formatters\PlanTypeFormatter.class
 com\hoaupkeep\innosol\controllers\IndexController.class
 com\hoaupkeep\innosol\bootstrap\InitData.class
+com\hoaupkeep\innosol\controllers\RepairController$1.class
 com\hoaupkeep\innosol\controllers\OwnersController.class

@@ -1,2 +1,3 @@
 com\hoaupkeep\innosol\controllers\HomeControllerTest.class
 com\hoaupkeep\innosol\controllers\OwnersControllerTest.class
+com\hoaupkeep\innosol\controllers\RepairControllerTest.class
