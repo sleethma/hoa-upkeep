@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-@Profile("SpringDataJPA")
+@Profile({"SpringDataJPA", "H2SpringDataJPA"})
 public class OwnerDataJPAService implements OwnerService {
 
     private final OwnerRepo ownerRepo;

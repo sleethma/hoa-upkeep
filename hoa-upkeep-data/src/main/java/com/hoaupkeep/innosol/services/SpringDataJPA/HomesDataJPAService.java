@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
-@Profile("SpringDataJPA")
+@Profile({"SpringDataJPA", "H2SpringDataJPA"})
 public class HomesDataJPAService implements HomesService {
 
     HomeRepo homeRepo;

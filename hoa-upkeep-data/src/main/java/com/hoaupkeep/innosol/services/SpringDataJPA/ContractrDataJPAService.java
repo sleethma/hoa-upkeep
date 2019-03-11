@@ -12,7 +12,7 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
-@Profile("SpringDataJPA")
+@Profile({"SpringDataJPA", "H2SpringDataJPA"})
 public class ContractrDataJPAService implements ContractorService {
 
     private final ContractorRepo contractorRepo;

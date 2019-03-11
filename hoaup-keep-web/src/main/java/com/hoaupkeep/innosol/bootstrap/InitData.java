@@ -4,6 +4,7 @@ import com.hoaupkeep.innosol.models.*;
 import com.hoaupkeep.innosol.services.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -13,6 +14,7 @@ import java.util.Set;
 //initializes data
 @Component
 @Slf4j
+@Profile({"default", "H2SpringDataJPA"})
 public class InitData implements CommandLineRunner {
 
     private OwnerService ownerService;

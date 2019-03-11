@@ -26,12 +26,6 @@ public class OwnersController {
         this.ownerService = ownerService;
     }
 
-//    @GetMapping({"/owners", "owners/index", "owners/index.html"})
-//    public String ownersList(Model model){
-//        model.addAttribute("owners", ownerService.findAll());
-//        return "owners/index";
-//    }
-
     @InitBinder
     public void setAllowedFields(WebDataBinder dataBinder) {
         dataBinder.setDisallowedFields("id");
